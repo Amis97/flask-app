@@ -1,6 +1,2 @@
-flask
-<<<<<<< HEAD
-pytest
-=======
-pytest
->>>>>>> f41a963a7954db4e6df69d4f2f127431b7f89ec3
+flask==3.1.1
+pytest==8.4.1
