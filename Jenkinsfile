@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "flask-app"
+        IMAGE_NAME = "sima97/flask-app"
     }
 
     stages {
@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t flask-app .'
+                sh 'docker build -t sima97/flask-app .'
             }
         }
         stage('Push to DockerHub') {
@@ -41,8 +41,8 @@ pipeline {
           usernameVariable: 'DOCKER_USER', 
           passwordVariable: 'DOCKER_PASS')]) {
 
-            sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-            sh 'docker push $IMAGE_NAME'
+            sh 'echo $DOCKER_PASS | docker login -u sima97 --password-stdin'
+            sh 'docker push sima97/flask-app'
         }
     }
 }
